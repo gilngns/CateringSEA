@@ -1,4 +1,5 @@
 import MealPlan from '../models/mealPlanModel.js';
+import upload from '../middleware/upload.js';
 
 const mealPlanController = {
   index: async (req, res) => {
@@ -12,15 +13,21 @@ const mealPlanController = {
   },
 
   create: async (req, res) => {
-    console.log('Uploaded file:', req.file); 
+    console.log('Body:', req.body);
+    console.log('File:', req.file); 
+    console.log('Headers:', req.headers['content-type']);
+
   
     const { name, description, price } = req.body;
     const image_url = req.file ? req.file.filename : null;
   
-    await MealPlan.create({ name, description, price, image_url });
-    res.status(201).json({ message: 'Meal plan created' });
+    try {
+      await MealPlan.create({ name, description, price, image_url });
+      res.status(201).json({ message: 'Meal plan created' });
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
   },
-  
 
   update: async (req, res) => {
     try {
