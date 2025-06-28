@@ -2,7 +2,7 @@
  * @param { import("knex").Knex } knex
  * @returns { Promise<void> }
  */
-exports.up = function(knex) {
+export async function up(knex) {
     return knex.schema.createTable('subscriptions', (table) => {
         table.increments('id').primary();
         table.integer('user_id').unsigned().references('id').inTable('users').onDelete('CASCADE');
@@ -17,13 +17,13 @@ exports.up = function(knex) {
         table.date('pause_period_start');
         table.date('pause_period_end');
         table.timestamps(true, true);
-      });
-};
+    });
+}
 
 /**
  * @param { import("knex").Knex } knex
  * @returns { Promise<void> }
  */
-exports.down = function(knex) {
+export async function down(knex) {
     return knex.schema.dropTable('subscriptions');
-};
+}

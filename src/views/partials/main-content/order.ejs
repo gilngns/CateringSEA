@@ -1,0 +1,67 @@
+<div class="content-body">
+  <div class="container-fluid">
+    <!-- Header Section -->
+    <div class="form-head d-flex justify-content-between align-items-start mb-4">
+      <div>
+        <h2 class="fw-bold mb-1">Orders</h2>
+        <p class="mb-0">List of active meal plan orders</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+        <div class="card bg-opacity-10 shadow-sm border-0 rounded-4">
+          <div class="card-body">
+            <!-- Filter Section -->
+            <% if (user.role === 'ADMIN') { %>
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center mb-3 gap-3">
+              <!-- Search -->
+              <input
+                type="text"
+                id="searchInput"
+                class="form-control"
+                placeholder="Search by phone, user or meal type..."
+                style="max-width: 300px"
+              />
+
+              <!-- Month Filter -->
+              <div class="d-flex gap-2 align-items-center">
+                <label for="monthPicker" class="form-label mb-0">Filter by Month:</label>
+                <input type="month" id="monthPicker" class="form-control" style="max-width: 200px;" />
+              </div>
+            </div>
+            <% } %>
+
+            <!-- Table Section -->
+            <div class="table-responsive">
+              <table class="table table-hover align-middle text-center">
+                <thead class="bg-primary text-white">
+                  <tr>
+                    <th>NAME</th>
+                    <th>PHONE</th>
+                    <th>MEAL TYPE</th>
+                    <th>DELIVERY DAYS</th>
+                    <th>ALLERGIES</th>
+                    <th>TOTAL PRICE</th>
+                    <th>STATUS</th>
+                    <th>START</th>
+                    <th>END</th>
+                    <!-- 👇 Hapus jika bukan ADMIN -->
+                    <% if (role === 'ADMIN') { %>
+                      <th>ACTION</th>
+                    <% } %>
+                  </tr>
+                </thead>
+                <tbody id="orders-body"></tbody>
+              </table>
+            </div>
+
+            <!-- Pagination Section (di bawah tabel) -->
+            <div id="pagination" class="mt-4 d-flex justify-content-center"></div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

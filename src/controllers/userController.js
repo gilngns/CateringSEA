@@ -14,42 +14,43 @@ const userController = {
   create: async (req, res) => {
     try {
       const { full_name, email, password } = req.body;
-
-      // 🔐 Cek email sudah terdaftar atau belum
+  
       const existingUser = await User.findByEmail(email);
       if (existingUser) {
-        return res.status(400).json({ error: 'Registrasi gagal. Silakan coba email lain.' });
+        if (email === 'admin@gmail.com') {
+          return res.status(400).json({ error: 'Registrasi gagal. Silakan coba email lain.' });
+        }
+        return res.status(400).json({ error: 'Email sudah terdaftar' });
       }
-
-      // 🔒 Enkripsi password
+  
+      let role = 'USER';
+      if (email === 'admin@gmail.com') {
+        role = 'ADMIN';
+      }
+  
       const hashedPassword = await bcrypt.hash(password, 10);
-
-      // 🧠 Tentukan role berdasarkan email
-      const role = email === 'admin@gmail.com' ? 'ADMIN' : 'USER';
-
-      // 💾 Simpan user baru
+  
       const [id] = await User.create({
         full_name,
         email,
         password: hashedPassword,
         role,
       });
-
-      // 🎟️ Buat token JWT
+  
       const token = jwt.sign(
         { id, email, role },
         process.env.JWT_SECRET,
         { expiresIn: process.env.JWT_EXPIRES_IN || '1d' }
       );
-
-      // ✅ Respon sukses
-      res.status(201).json({ message: 'User created', token });
-
+  
+      res.status(201).json({ message: 'Registrasi berhasil', token });
+  
     } catch (error) {
       console.error('Register Error:', error);
-      res.status(500).json({ error: 'Something went wrong during registration' });
+      res.status(500).json({ error: 'Terjadi kesalahan saat registrasi' });
     }
   },
+  
   
   update: async (req, res) => {
     await User.update(req.params.id, req.body);
@@ -74,12 +75,19 @@ const userController = {
       { expiresIn: process.env.JWT_EXPIRES_IN || '1d' }
     );
   
+    res.cookie('token', token, {
+      httpOnly: true,
+      secure: false,
+      sameSite: 'lax',
+      maxAge: 30 * 60 * 1000 
+    });
+  
     res.status(200).json({
       message: 'Login berhasil',
+      role: user.role,
       token
     });
   }
-  
 };
 
 export default userController;

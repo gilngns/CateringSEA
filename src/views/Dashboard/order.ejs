@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../partials/head') %>
+  </head>
+  <body>
+    <div id="preloader">
+      <div class="sk-three-bounce">
+        <div class="sk-child sk-bounce1"></div>
+        <div class="sk-child sk-bounce2"></div>
+        <div class="sk-child sk-bounce3"></div>
+      </div>
+    </div>  
+    <div id="main-wrapper">
+      <div class="nav-header">
+        <a href="/" class="brand-logo">
+          <img class="logo-abbr rounded" src="/admin/images/Logo.png" alt="" />
+          <img
+            class="logo-compact"
+            src="/admin/images/logo-text.png"
+            alt=""
+            width="500px"
+            height="500px"
+          />
+          <img class="brand-title" src="/admin/images/logo-text.png" alt="" />
+        </a>
+        <div class="nav-control">
+          <div class="hamburger">
+            <span class="line"></span><span class="line"></span
+            ><span class="line"></span>
+          </div>
+        </div>
+      </div>
+      <div class="header">
+        <div class="header-content"><%- include('../partials/navbar') %></div>
+      </div>
+      <div class="deznav"><%- include('../partials/sidebar') %></div>
+      <%- include('../partials/main-content/order.ejs') %>
+    </div>
+    <script>
+      const currentUserRole = "<%= role %>"; // <-- deklarasi 2, bentrok
+    </script>    
+    <script src="/js/subscription.js"></script>
+    <%- include('../partials/script') %>
+  </body>
+</html>

@@ -12,5 +12,7 @@ export const registerValidation = [
 
   body('password')
     .notEmpty().withMessage('Password wajib diisi')
-    .isLength({ min: 8 }).withMessage('Password minimal 8 karakter'),
+    .isLength({ min: 8 }).withMessage('Password minimal 8 karakter')
+    .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/)
+    .withMessage('Password harus mengandung huruf besar, huruf kecil, angka, dan simbol'),
 ];

@@ -2,6 +2,7 @@ import express from 'express';
 import { registerValidation } from '../middleware/userValidator.js';
 import { validationResult } from 'express-validator';
 import userController from '../controllers/userController.js';
+import { authMiddleware } from '../middleware/authMiddleware.js';
 
 const router = express.Router();
 
@@ -17,8 +18,13 @@ router.post('/', registerValidation, (req, res, next) => {
 
 router.post('/login', userController.login);
 router.post('/logout', (req, res) => {
-  res.json({ message: 'Logout successful, silakan hapus token di client.' });
+  res.clearCookie('token'); 
+  res.status(200).json({ message: 'Logout berhasil' });
 });
+router.get('/check-auth', authMiddleware, (req, res) => {
+  res.status(200).json({ loggedIn: true, user: req.user });
+});
+
 router.get('/', userController.index);
 router.get('/:id', userController.show);
 router.put('/:id', userController.update);

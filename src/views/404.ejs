@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>404 - Halaman Tidak Ditemukan</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(145deg, #222528, #000000);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      perspective: 1000px;
+    }
+
+    .container {
+      background: #ffffff;
+      padding: 50px 40px; 
+      border-radius: 20px;
+      box-shadow: 10px 10px 25px #cfd4da, -10px -10px 25px #ffffff;
+      animation: fadeIn 1.5s ease-in-out, tilt 5s infinite alternate ease-in-out;
+      transform-style: preserve-3d;
+      transform: rotateX(8deg) rotateY(0deg);
+      max-width: 600px;
+    }
+
+    h1 {
+      font-size: 100px;
+      color: #5a6f8c;
+      margin-bottom: 16px;
+      text-shadow: 2px 2px 12px rgba(90, 111, 140, 0.2);
+      transform: translateZ(20px);
+    }
+
+    p {
+      font-size: 20px;
+      margin: 20px 0;
+      color: #7c8a9f;
+      transform: translateZ(10px);
+    }
+
+    a {
+      display: inline-block;
+      margin-top: 20px;
+      text-decoration: none;
+      background-color: #4b6cb7;
+      color: #fff;
+      padding: 12px 28px;
+      border-radius: 8px;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+      box-shadow: 0 6px 14px rgba(75, 108, 183, 0.3);
+      transform: translateZ(30px);
+    }
+
+    a:hover {
+      background-color: #3957a5;
+      transform: scale(1.06) translateZ(40px);
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: scale(0.8);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes tilt {
+      0% {
+        transform: rotateX(8deg) rotateY(-3deg);
+      }
+      100% {
+        transform: rotateX(8deg) rotateY(3deg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>404</h1>
+    <p>Ups! Halaman yang kamu cari tidak ditemukan.</p>
+    <a href="/">Kembali ke Beranda</a>
+  </div>
+</body>
+</html>

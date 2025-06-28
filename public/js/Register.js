@@ -6,8 +6,12 @@ document.getElementById('registerForm').addEventListener('submit', async (e) => 
   const password = document.getElementById('password').value;
   const confirmPassword = document.getElementById('password_confirmation').value;
 
+  const errorAlert = document.getElementById('errorAlert');
+  errorAlert.classList.add('d-none'); 
+
   if (password !== confirmPassword) {
-    alert("Password dan konfirmasi password tidak cocok.");
+    errorAlert.textContent = "Password dan konfirmasi password tidak cocok.";
+    errorAlert.classList.remove('d-none');
     return;
   }
 
@@ -22,16 +26,21 @@ document.getElementById('registerForm').addEventListener('submit', async (e) => 
 
     if (response.ok) {
       localStorage.setItem('token', data.token);
-      window.location.href = "/login"; 
+      window.location.href = "/login";
     } else {
+      let errorMessage = "Registrasi gagal.";
       if (Array.isArray(data.errors)) {
-        alert(data.errors.join('\n'));
-      } else {
-        alert(data.error || "Registrasi gagal.");
+        errorMessage = data.errors.join('<br>');
+      } else if (data.error) {
+        errorMessage = data.error;
       }
+
+      errorAlert.innerHTML = errorMessage;
+      errorAlert.classList.remove('d-none');
     }
   } catch (error) {
     console.error("❌ Fetch Error:", error);
-    alert("Terjadi kesalahan saat mendaftar.");
+    errorAlert.textContent = "Terjadi kesalahan saat mendaftar.";
+    errorAlert.classList.remove('d-none');
   }
 });

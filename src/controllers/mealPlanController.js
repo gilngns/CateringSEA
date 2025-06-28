@@ -1,5 +1,6 @@
 import MealPlan from '../models/mealPlanModel.js';
-import upload from '../middleware/upload.js';
+import fs from 'fs/promises';
+import path from 'path';
 
 const mealPlanController = {
   index: async (req, res) => {
@@ -33,13 +34,34 @@ const mealPlanController = {
     try {
       const { name, description, price } = req.body;
       const image_url = req.file ? req.file.filename : null;
-
+  
+      // Ambil data lama untuk hapus gambar lama jika ada
+      const oldData = await MealPlan.findById(req.params.id);
       const updatedData = { name, description, price };
-      if (image_url) updatedData.image_url = image_url;
-
+  
+      // Gunakan path root project, karena folder 'uploads' ada di luar src
+      const uploadsDir = path.join(process.cwd(), 'uploads');
+  
+      if (image_url) {
+        // Hapus gambar lama jika ada
+        if (oldData?.image_url) {
+          const oldImagePath = path.join(uploadsDir, oldData.image_url);
+          try {
+            await fs.unlink(oldImagePath);
+            console.log('✅ Gambar lama dihapus:', oldData.image_url);
+          } catch (err) {
+            console.warn('⚠️ Gagal hapus gambar lama:', err.message);
+          }
+        }
+  
+        updatedData.image_url = image_url;
+      }
+  
       await MealPlan.update(req.params.id, updatedData);
       res.json({ message: 'Meal Plan updated' });
+  
     } catch (error) {
+      console.error(error);
       res.status(500).json({ error: error.message });
     }
   },

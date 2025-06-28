@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../partials/head') %>
+  </head>
+  <body>
+    <div id="preloader">
+      <div class="sk-three-bounce">
+        <div class="sk-child sk-bounce1"></div>
+        <div class="sk-child sk-bounce2"></div>
+        <div class="sk-child sk-bounce3"></div>
+      </div>
+    </div>
+    <!-- modal welcome -->
+    <!-- <div
+      class="modal fade"
+      id="welcomeModal"
+      tabindex="-1"
+      aria-labelledby="welcomeModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div
+          class="modal-content border-0 rounded-4 shadow-lg bg-white bg-opacity-75 backdrop-blur"
+        >
+          <div class="modal-body text-center p-5">
+            <div class="mb-4">
+              <dotlottie-player
+                src="https://lottie.host/b5dc0f37-4298-4211-86b7-4b93000fb3b0/xyeKSFyEUn.lottie"
+                background="transparent"
+                speed="1"
+                style="width: 300px; height: 300px;  margin: auto;"
+                loop
+                autoplay
+              ></dotlottie-player>
+            </div>
+            <h3 class="fw-bold mb-3 text-dark">
+              Selamat Datang, <%= user?.full_name || 'Admin' %>! 🎉
+            </h3>
+            <p class="text-secondary">
+              Senang melihatmu kembali. Semoga harimu menyenangkan!
+            </p>
+            <button
+              type="button"
+              class="btn btn-warning px-4 rounded-pill mt-4"
+              data-bs-dismiss="modal"
+            >
+              Masuk Dashboard
+            </button>
+          </div>
+        </div>
+      </div>
+    </div> -->
+    <!-- end -->
+    <div id="main-wrapper">
+      <div class="nav-header">
+        <a href="/" class="brand-logo">
+          <img class="logo-abbr rounded" src="/admin/images/Logo.png" alt="" />
+          <img
+            class="logo-compact"
+            src="/admin/images/logo-text.png"
+            alt=""
+            width="500px"
+            height="500px"
+          />
+          <img class="brand-title" src="/admin/images/logo-text.png" alt="" />
+        </a>
+        <div class="nav-control">
+          <div class="hamburger">
+            <span class="line"></span><span class="line"></span
+            ><span class="line"></span>
+          </div>
+        </div>
+      </div>
+      <div class="header">
+        <div class="header-content"><%- include('../partials/navbar') %></div>
+      </div>
+      <div class="deznav"><%- include('../partials/sidebar') %></div>
+      <%- include('../partials/main-content/index.ejs') %>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <%- include('../partials/script') %>
+    <script src="/js/dashboard.js"></script>
+  </body>
+</html>

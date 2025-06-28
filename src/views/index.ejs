@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>SEACatering</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="shortcut icon" href="/img/Logo.png" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+
+    <!-- AOS CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+
+    <!-- Link CSS -->
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="hero-overlay"></div>
+
+      <!-- Navbar -->
+      <nav
+        class="navbar navbar-expand-lg navbar-dark bg-transparent fixed-top w-100 scrolled"
+      >
+        <div class="container fs-4">
+          <button
+            class="navbar-toggler border-0"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasNavbar"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <a class="navbar-brand d-none d-lg-none" href="#">
+            <img src="/img/Logo.png" alt="SEA Logo" width="60" />
+          </a>
+
+          <div
+            class="d-none d-lg-flex w-100 justify-content-between align-items-center"
+          >
+            <ul class="navbar-nav flex-row me-auto">
+              <li class="nav-item mx-2">
+                <a class="nav-link" href="#">Home</a>
+              </li>
+              <li class="nav-item mx-2">
+                <a class="nav-link" href="/menu">Menu</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link" id="authBtn">Login</a>
+              </li>
+            </ul>
+
+            <a class="navbar-brand mx-3" href="#">
+              <img src="/img/Logo.png" alt="SEA Logo" width="80" />
+            </a>
+
+            <ul class="navbar-nav flex-row ms-auto">
+              <li class="nav-item mx-2">
+                <a class="nav-link" href="/subscription">Subscription</a>
+              </li>
+              <li class="nav-item mx-2">
+                <a class="nav-link" href="/order">Order</a>
+              </li>
+              <li class="nav-item mx-2">
+                <a class="nav-link" href="/contact">Contact</a>
+              </li>
+            </ul>
+          </div>
+          <div
+            class="offcanvas offcanvas-start text-bg-dark d-lg-none"
+            tabindex="-1"
+            id="offcanvasNavbar"
+          >
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title">SEA Catering</h5>
+              <button
+                type="button"
+                class="btn-close btn-close-white"
+                data-bs-dismiss="offcanvas"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav justify-content-end flex-grow-1">
+                <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Menu</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Contact</a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link" id="logoutBtn">Logout</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Hero Content -->
+      <div class="container hero-content py-5 mt-5 mt-lg-0">
+        <div class="row align-items-center">
+          <!-- Text Section -->
+          <div
+            class="col-md-6 text-center text-md-start pt-5 pt-lg-0"
+            data-aos="fade-up"
+            data-aos-duration="1000"
+          >
+            <h1 class="display-4 mb-3">
+              Healthy Meals, <br />Anytime, Anywhere
+            </h1>
+            <p class="lead mb-4">
+              Enjoy our delicious dishes made with love and high quality
+              ingredients.
+            </p>
+            <a
+              href="/subscription"
+              class="btn btn-warning fw-bold px-4 py-2 rounded-pill"
+              >Subscribe Now</a
+            >
+          </div>
+
+          <!-- Image Section -->
+          <div
+            class="col-md-6 text-center"
+            data-aos="fade-up"
+            data-aos-duration="1000"
+          >
+            <img
+              src="/img/catering.png"
+              alt="Catering Dish"
+              class="img-fluid mx-lg-5 hero-img spin"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featurs -->
+    <section class="py-5 bg-light">
+      <div class="container text-center">
+        <div class="row g-4">
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="0">
+            <div
+              class="feature-card p-4 border rounded shadow-sm h-100 transition"
+            >
+              <i
+                class="fas fa-calendar-alt fa-2x text-warning mb-3 feature-icon"
+              ></i>
+              <h5 class="fw-bold">Event Catering</h5>
+              <p>
+                Delicious food for your special events including weddings,
+                parties, and meetings.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+            <div
+              class="feature-card p-4 border rounded shadow-sm h-100 transition"
+            >
+              <i
+                class="fas fa-utensils fa-2x text-warning mb-3 feature-icon"
+              ></i>
+              <h5 class="fw-bold">Daily Lunchbox</h5>
+              <p>
+                Nutritious and tasty lunch delivered to your home or office
+                daily.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+            <div
+              class="feature-card p-4 border rounded shadow-sm h-100 transition"
+            >
+              <i
+                class="fas fa fa-users fa-2x text-warning mb-3 feature-icon"
+              ></i>
+              <!-- fallback kalau ga ada: fas fa-user-tie -->
+              <h5 class="fw-bold">Private Chef</h5>
+              <p>
+                Hire our master chefs for private in-house dining experiences
+                and gatherings.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- about -->
+    <section class="container py-5" id="about">
+      <div class="row align-items-center">
+        <!-- Right: Text Section -->
+        <div class="col-lg-6 order-2 order-lg-1 px-4 text-center text-lg-start">
+          <h5
+            class="text-warning fw-bold"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            About Us
+          </h5>
+          <h1 class="mb-4" data-aos="fade-up" data-aos-delay="200">
+            Welcome to <span class="text-warning">🍴SEA Catering</span>
+          </h1>
+          <p class="mb-3" data-aos="fade-up" data-aos-delay="300">
+            We deliver the finest service with exceptional flavors. Every dish
+            is prepared with carefully selected ingredients and attention to
+            detail.
+          </p>
+          <p class="mb-4" data-aos="fade-up" data-aos-delay="400">
+            Enjoy a satisfying culinary experience with us — convenient,
+            delicious, and perfect for your special occasions.
+          </p>
+
+          <!-- Contact Info -->
+          <div class="mb-4" data-aos="fade-up" data-aos-delay="450">
+            <p class="mb-1 text-muted">
+              <strong class="text-dark">Manager:</strong> Brian
+            </p>
+            <p class="mb-0 text-muted">
+              <strong class="text-dark">Phone:</strong> 08123456789
+            </p>
+          </div>
+
+          <!-- Counters -->
+          <div class="row mb-3">
+            <div class="col-sm-6 mb-3" data-aos="fade-up" data-aos-delay="500">
+              <div
+                class="d-flex align-items-center p-3 rounded shadow-sm border-start border-4 border-warning bg-white h-100"
+              >
+                <div>
+                  <h1 id="count-experience" class="text-warning fw-bold mb-1">
+                    0
+                  </h1>
+                  <p class="mb-0 text-muted">
+                    Years of <strong class="text-dark">Experience</strong>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 mb-3" data-aos="fade-up" data-aos-delay="600">
+              <div
+                class="d-flex align-items-center p-3 rounded shadow-sm border-start border-4 border-warning bg-white h-100"
+              >
+                <div>
+                  <h1 id="count-chefs" class="text-warning fw-bold mb-1">0</h1>
+                  <p class="mb-0 text-muted">
+                    Popular <strong class="text-dark">Master Chefs</strong>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <a
+            href="#"
+            class="btn btn-warning text-white fw-semibold px-4 py-2"
+            data-aos="fade-up"
+            data-aos-delay="700"
+          >
+            READ MORE
+          </a>
+        </div>
+
+        <!-- Left: 2x2 Image Grid -->
+        <div class="col-lg-6 order-1 order-lg-2 mb-4 mb-lg-0">
+          <div class="row g-3">
+            <div
+              class="col-6"
+              data-aos="fade-up"
+              data-aos-duration="800"
+              data-aos-delay="100"
+            >
+              <img
+                src="/img/about1.jpg"
+                class="img-fluid rounded"
+                alt="Image 1"
+              />
+            </div>
+            <div
+              class="col-6"
+              data-aos="fade-up"
+              data-aos-duration="800"
+              data-aos-delay="200"
+            >
+              <img
+                src="/img/about2.jpg"
+                class="img-fluid rounded"
+                alt="Image 2"
+              />
+            </div>
+            <div
+              class="col-6"
+              data-aos="fade-up"
+              data-aos-duration="800"
+              data-aos-delay="300"
+            >
+              <img
+                src="/img/about3.jpg"
+                class="img-fluid rounded"
+                alt="Image 3"
+              />
+            </div>
+            <div
+              class="col-6"
+              data-aos="fade-up"
+              data-aos-duration="800"
+              data-aos-delay="400"
+            >
+              <img
+                src="/img/about4.jpg"
+                class="img-fluid rounded"
+                alt="Image 4"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Meal Plan Preview Section -->
+    <section id="meal-preview" class="py-5 bg-white">
+      <div class="container">
+        <div class="text-center mb-5" data-aos="fade-up">
+          <h5 class="text-warning fw-bold">Our Plans</h5>
+          <h2 class="fw-bold display-5">Popular Meal Plans</h2>
+          <p class="text-muted">
+            Choose the best meal that fits your lifestyle
+          </p>
+        </div>
+
+        <div class="row g-4" id="meal-cards"></div>
+      </div>
+    </section>
+
+    <!-- Chef Section -->
+    <section class="py-5 bg-light" id="chefs">
+      <div class="container">
+        <div class="text-center mb-5">
+          <h5
+            class="text-warning fw-bold"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            Our Team
+          </h5>
+          <h2 class="fw-bold" data-aos="fade-up" data-aos-delay="200">
+            Meet Our Master Chefs
+          </h2>
+          <p class="text-muted" data-aos="fade-up" data-aos-delay="300">
+            Talented professionals dedicated to crafting healthy and delicious
+            meals.
+          </p>
+        </div>
+        <div class="row justify-content-center">
+          <!-- Chef Card -->
+          <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="400">
+            <div class="card border-0 shadow text-center p-4 h-100 rounded-4">
+              <div class="mx-auto mb-3 chef-photo-wrapper">
+                <img
+                  src="/img/team-1.jpg"
+                  class="rounded-circle chef-photo"
+                  alt="Chef Andika"
+                />
+              </div>
+              <h5 class="fw-bold">Chef Andika</h5>
+              <p class="text-muted mb-1">Indonesian Cuisine Expert</p>
+              <p class="text-muted small">
+                20+ years delivering traditional flavors with a healthy twist.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="500">
+            <div class="card border-0 shadow text-center p-4 h-100 rounded-4">
+              <div class="mx-auto mb-3 chef-photo-wrapper">
+                <img
+                  src="/img/team-2.jpg"
+                  class="rounded-circle chef-photo"
+                  alt="Chef Bima"
+                />
+              </div>
+              <h5 class="fw-bold">Chef Bima</h5>
+              <p class="text-muted mb-1">Nutrition & Meal Planning</p>
+              <p class="text-muted small">
+                Expert in balanced meal planning and diet customization.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="600">
+            <div class="card border-0 shadow text-center p-4 h-100 rounded-4">
+              <div class="mx-auto mb-3 chef-photo-wrapper">
+                <img
+                  src="/img/team-3.jpg"
+                  class="rounded-circle chef-photo"
+                  alt="Chef Reza"
+                />
+              </div>
+              <h5 class="fw-bold">Chef Reza</h5>
+              <p class="text-muted mb-1">Fusion Food Specialist</p>
+              <p class="text-muted small">
+                Mixing traditional and modern tastes into healthy masterpieces.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonial Section -->
+    <section class="py-5 bg-light" id="testimonial">
+      <div class="container">
+
+        <!-- Section Header -->
+        <div class="text-center mb-5" data-aos="fade-up" data-aos-delay="100">
+          <div class="mb-3">
+            <i class="bi bi-chat-dots-fill fs-1 text-warning"></i>
+          </div>
+          <h2 class="fw-bold display-5">What People Are Saying</h2>
+          <p class="fst-italic">Real voices from our happy food lovers 💬✨</p>
+        </div>
+
+        <!-- Swiper -->
+        <div class="swiper" data-aos="fade-up" data-aos-delay="200">
+          <div class="swiper-wrapper">
+
+            <!-- Testimonial Slide 1 -->
+            <div class="swiper-slide">
+              <div class="card border-0 shadow-sm h-100 p-4 rounded-4 bg-white" data-aos="zoom-in" data-aos-delay="300">
+                <div class="d-flex align-items-center mb-3">
+                  <i class="bi bi-person-circle fs-1 text-warning me-3"></i>
+                  <div>
+                    <h6 class="mb-0">Foodie88</h6>
+                    <div class="text-warning small">
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                    </div>
+                  </div>
+                </div>
+                <p class="card-text">“My favorite catering service. Delicious and consistent taste every time!”</p>
+              </div>
+            </div>
+
+            <!-- Testimonial Slide 2 -->
+            <div class="swiper-slide">
+              <div class="card border-0 shadow-sm h-100 p-4 rounded-4 bg-white" data-aos="zoom-in" data-aos-delay="400">
+                <div class="d-flex align-items-center mb-3">
+                  <i class="bi bi-person-circle fs-1 text-warning me-3"></i>
+                  <div>
+                    <h6 class="mb-0">BusyMom92</h6>
+                    <div class="text-warning small">
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star"></i>
+                    </div>
+                  </div>
+                </div>
+                <p class="card-text">“Ordering is so easy and the meals are lifesavers on hectic weekdays!”</p>
+              </div>
+            </div>
+
+            <!-- Testimonial Slide 3 -->
+            <div class="swiper-slide">
+              <div class="card border-0 shadow-sm h-100 p-4 rounded-4 bg-white" data-aos="zoom-in" data-aos-delay="500">
+                <div class="d-flex align-items-center mb-3">
+                  <i class="bi bi-person-circle fs-1 text-warning me-3"></i>
+                  <div>
+                    <h6 class="mb-0">ChefAtHeart</h6>
+                    <div class="text-warning small">
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                    </div>
+                  </div>
+                </div>
+                <p class="card-text">“Feels like homemade food, but better! The spices and freshness are top-notch.”</p>
+              </div>
+            </div>
+
+            <!-- Testimonial Slide 4 -->
+            <div class="swiper-slide">
+              <div class="card border-0 shadow-sm h-100 p-4 rounded-4 bg-white" data-aos="zoom-in" data-aos-delay="600">
+                <div class="d-flex align-items-center mb-3">
+                  <i class="bi bi-person-circle fs-1 text-warning me-3"></i>
+                  <div>
+                    <h6 class="mb-0">GreenLife_99</h6>
+                    <div class="text-warning small">
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star-fill"></i>
+                      <i class="bi bi-star"></i>
+                      <i class="bi bi-star"></i>
+                    </div>
+                  </div>
+                </div>
+                <p class="card-text">“I love the healthy options. So hard to find good plant-based meals, but this one delivers!”</p>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Swiper Pagination -->
+          <div class="swiper-pagination mt-4"></div>
+        </div>
+
+        <!-- Button: Trigger Testimonial Modal -->
+        <div class="text-center mt-5">
+          <button class="btn btn-warning px-4 py-2 rounded-pill" data-bs-toggle="modal" data-bs-target="#testimonialModal">
+            ✍️ Submit Your Testimonial
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Testimonial Modal -->
+    <div class="modal fade" id="testimonialModal" tabindex="-1" aria-labelledby="testimonialModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content rounded-4">
+          <div class="modal-header border-0">
+            <h5 class="modal-title fw-bold" id="testimonialModalLabel">Share Your Experience</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form class="needs-validation" novalidate>
+
+              <!-- Rating -->
+              <div class="mb-3">
+                <label class="form-label fw-semibold d-block">Rating</label>
+                <div id="star-rating" class="text-warning fs-4">
+                  <input type="hidden" name="rating" id="rating" value="0">
+                  <i class="bi bi-star" data-value="1"></i>
+                  <i class="bi bi-star" data-value="2"></i>
+                  <i class="bi bi-star" data-value="3"></i>
+                  <i class="bi bi-star" data-value="4"></i>
+                  <i class="bi bi-star" data-value="5"></i>
+                </div>
+                <small class="text-muted">Click to rate</small>
+              </div>
+
+              <!-- Review -->
+              <div class="mb-3">
+                <label for="review" class="form-label fw-semibold">Your Testimonial</label>
+                <textarea name="review" id="review" rows="4" class="form-control" placeholder="Write your thoughts here..." required></textarea>
+                <div class="invalid-feedback">Testimonial cannot be empty.</div>
+              </div>
+
+              <!-- Submit -->
+              <div class="text-end">
+                <button type="submit" class="btn btn-warning rounded-pill px-4">Submit</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <%- include('../views/partials/footer.ejs') %>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- AOS, jQuery, Swiper -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+    <!-- Init AOS -->
+    <script>
+      AOS.init({
+        once: true,
+        duration: 700,
+        easing: "ease-in-out",
+      });
+    </script>
+
+    <!-- Custom JS -->
+    <script src="/js/script.js"></script>
+    <script src="/js/testimoni.js"></script>
+    <script src="/js/index.js"></script>
+  </body>
+</html>
