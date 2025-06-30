@@ -9,10 +9,27 @@ document.addEventListener('DOMContentLoaded', async () => {
     console.error('❌ Gagal mengambil data meal plans:', err);
   }
 
-  await waitUntilElementExists('total-revenue');
+// ✅ Tunggu semua elemen penting tersedia (hanya yang benar-benar ada di DOM kamu)
+await Promise.all([
+  waitUntilElementExists('total-income'),
+  waitUntilElementExists('total-expense'),
+  waitUntilElementExists('chartBars') // tambahkan ini untuk memastikan grafik siap
+]);
 
-  // === Default Load ===
-  await updateDashboardByRange('daily');
+// ✅ Delay sebentar biar DOM ready (jaga-jaga render lambat)
+await new Promise(resolve => setTimeout(resolve, 100));
+
+// ✅ Aktifkan tab "daily" (UI)
+const dailyTab = document.querySelector('.nav-tabs .nav-link[data-range="daily"]');
+if (dailyTab) dailyTab.classList.add('active');
+
+// ✅ Atur teks dropdown ke "Daily" kalau ada dropdown
+const dropdownToggle = document.querySelector('.dropdown-toggle');
+if (dropdownToggle) dropdownToggle.textContent = 'Daily';
+
+// ✅ Langsung panggil dashboard daily
+await updateDashboardByRange('daily');
+
 
   // === Dropdown Filter Handler ===
   document.querySelectorAll('.dropdown-menu .dropdown-item').forEach(item => {
@@ -30,12 +47,13 @@ document.addEventListener('DOMContentLoaded', async () => {
       if (!range) return;
       await updateDashboardByRange(range);
 
-      // Manual tab UI activation
+      // Ubah visual tab active
       document.querySelectorAll('.nav-tabs .nav-link').forEach(l => l.classList.remove('active'));
       e.target.classList.add('active');
     });
   });
 });
+
 
 // ========== Update Both Revenue & Orders ==========
 async function updateDashboardByRange(range) {
@@ -63,39 +81,50 @@ function waitUntilElementExists(id, timeout = 3000) {
 
 function parseHarga(value) {
   if (typeof value === 'string') {
-    return parseInt(value.replace(/[^\d]/g, ''), 10) || 0;
+    return Math.floor(parseFloat(value)) || 0;
   }
-  return typeof value === 'number' ? value : 0;
+  return typeof value === 'number' ? Math.floor(value) : 0;
 }
 
 function setText(id, value) {
   const el = document.getElementById(id);
-  if (el) {
-    const num = parseHarga(value);
+  if (!el) return;
+
+  const num = parseHarga(value);
+  el.textContent = '0'; // biar animasi dari nol
+
+  // Delay sedikit biar counterUp bisa animasi
+  setTimeout(() => {
     el.setAttribute('data-raw', num);
-    el.textContent = num.toLocaleString('id-ID');
-  }
+    animateCounter(id);
+  }, 100);
 }
 
 function animateCounter(id) {
   const el = document.getElementById(id);
   if (!el) return;
+
   const raw = parseInt(el.getAttribute('data-raw')) || 0;
+
+  console.log(`▶ Animating ${id}:`, raw);
 
   if (typeof counterUp === 'function') {
     counterUp(el, {
       duration: 1000,
       delay: 16,
       onComplete: () => {
+        console.log(`✅ Done animating ${id}`);
         el.textContent = raw.toLocaleString('id-ID');
         if (id === 'total-revenue') formatRevenueSuffix();
       }
     });
   } else {
+    console.warn('❌ counterUp not found');
     el.textContent = raw.toLocaleString('id-ID');
     if (id === 'total-revenue') formatRevenueSuffix();
   }
 }
+
 
 function formatRevenueSuffix() {
   const el = document.getElementById('total-revenue');
@@ -117,23 +146,43 @@ async function loadRevenueFromFrontend(range = 'daily') {
     const res = await fetch('http://localhost:3000/api/subscriptions');
     const subscriptions = await res.json();
 
-    const today = new Date();
-    today.setHours(23, 59, 59, 999);
-    const startDate = new Date(today);
+    const now = new Date();
+    const wibNow = new Date(now.getTime() + (7 * 60 * 60 * 1000)); 
+    const endDate = new Date(wibNow);
+    endDate.setHours(23, 59, 59, 999);
+
+    const startDate = new Date(endDate);
 
     switch (range) {
-      case 'daily': startDate.setHours(0, 0, 0, 0); break;
-      case 'weekly': startDate.setDate(today.getDate() - 6); break;
-      case 'monthly': startDate.setMonth(today.getMonth() - 1); break;
+      case 'daily':
+        startDate.setHours(0, 0, 0, 0);
+        break;
+      case 'weekly':
+        startDate.setDate(startDate.getDate() - 6);
+        break;
+      case 'monthly':
+        startDate.setMonth(startDate.getMonth() - 1);
+        break;
     }
 
     const filtered = subscriptions.filter(sub => {
-      const local = new Date(new Date(sub.start_date).getTime() + 7 * 60 * 60 * 1000);
-      return !isNaN(local) && local >= startDate && local <= today;
+      const localStart = new Date(new Date(sub.start_date).getTime() + 7 * 60 * 60 * 1000); // Anggap semua UTC dan konversi ke WIB
+      return localStart >= startDate && localStart <= endDate;
     });
 
-    const income = filtered.filter(sub => sub.status === 'ACTIVE').reduce((sum, sub) => sum + parseHarga(sub.total_price), 0);
-    const expense = filtered.filter(sub => sub.status !== 'ACTIVE').reduce((sum, sub) => sum + parseHarga(sub.total_price), 0);
+    // Logging untuk debug
+    console.log("🟡 WIB Start:", startDate.toLocaleString());
+    console.log("🟡 WIB End:", endDate.toLocaleString());
+    console.log("🟡 Subs found:", filtered.length);
+
+    const income = filtered
+      .filter(sub => sub.status === 'ACTIVE')
+      .reduce((sum, sub) => sum + parseHarga(sub.total_price), 0);
+
+    const expense = filtered
+      .filter(sub => sub.status !== 'ACTIVE')
+      .reduce((sum, sub) => sum + parseHarga(sub.total_price), 0);
+
     const revenue = income - expense;
 
     setText('total-revenue', revenue);
@@ -144,6 +193,7 @@ async function loadRevenueFromFrontend(range = 'daily') {
 
     ['total-revenue', 'total-income', 'total-expense', 'total-orders', 'total-clients'].forEach(animateCounter);
 
+    // Chart data
     const grouped = {};
     filtered.forEach(sub => {
       const d = new Date(new Date(sub.start_date).getTime() + 7 * 60 * 60 * 1000);

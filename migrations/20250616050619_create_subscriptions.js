@@ -11,6 +11,7 @@ export async function up(knex) {
         table.string('meal_type');
         table.string('delivery_days'); 
         table.text('allergies');
+        table.decimal('total_price', 10, 2).notNullable().defaultTo(0);
         table.enu('status', ['ACTIVE', 'PAUSE', 'CANCEL']).defaultTo('ACTIVE');
         table.date('start_date');
         table.date('end_date');

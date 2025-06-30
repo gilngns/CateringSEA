@@ -24,7 +24,7 @@
         <span class="text-warning">Subscription</span>
       </p>
     </div>
-
+  
     <!-- Subscription Form -->
     <section class="py-5 bg-light">
       <div class="container">
@@ -34,180 +34,65 @@
               <h4 class="form-section-title text-warning">Subscription Form</h4>
               <form id="subscribeForm">
                 <div class="row g-3">
+                  <!-- Phone -->
                   <div class="col-md-6">
                     <label for="phone">Phone Number</label>
                     <div class="input-with-icon">
                       <i class="fa-solid fa-phone form-icon"></i>
-                      <input
-                        type="tel"
-                        class="form-control"
-                        name="phone_number"
-                        id="phone"
-                        placeholder="+62..."
-                        required
-                      />
+                      <input type="tel" class="form-control" name="phone_number" id="phone" placeholder="+62..." required />
                     </div>
                   </div>
-
+  
+                  <!-- Plan -->
                   <div class="col-md-6">
                     <label for="plan">Plan</label>
                     <div class="input-with-icon">
                       <i class="fa-solid fa-list-ul form-icon"></i>
-                      <select
-                        name="plan_id"
-                        id="plan"
-                        class="form-select ps-5"
-                        required
-                      >
+                      <select name="plan_id" id="plan" class="form-select ps-5" required>
                         <option value="">-- Choose Plan --</option>
                       </select>
                     </div>
                   </div>
-
-                  <!-- Meal Type (Checkbox) -->
+  
+                  <!-- Meal Type -->
                   <div class="col-md-6">
                     <label class="form-label">Meal Type</label>
-                    <div class="form-check">
-                      <input
-                        class="form-check-input"
-                        type="checkbox"
-                        name="meal_type"
-                        value="breakfast"
-                        id="breakfast"
-                      />
-                      <label class="form-check-label" for="breakfast"
-                        >Breakfast</label
-                      >
-                    </div>
-                    <div class="form-check">
-                      <input
-                        class="form-check-input"
-                        type="checkbox"
-                        name="meal_type"
-                        value="lunch"
-                        id="lunch"
-                      />
-                      <label class="form-check-label" for="lunch">Lunch</label>
-                    </div>
-                    <div class="form-check">
-                      <input
-                        class="form-check-input"
-                        type="checkbox"
-                        name="meal_type"
-                        value="dinner"
-                        id="dinner"
-                      />
-                      <label class="form-check-label" for="dinner"
-                        >Dinner</label
-                      >
-                    </div>
+                    <div class="form-check"><input class="form-check-input" type="checkbox" name="meal_type" value="breakfast" id="breakfast" /><label class="form-check-label" for="breakfast">Breakfast</label></div>
+                    <div class="form-check"><input class="form-check-input" type="checkbox" name="meal_type" value="lunch" id="lunch" /><label class="form-check-label" for="lunch">Lunch</label></div>
+                    <div class="form-check"><input class="form-check-input" type="checkbox" name="meal_type" value="dinner" id="dinner" /><label class="form-check-label" for="dinner">Dinner</label></div>
                   </div>
-
-                  <!-- Delivery Days (Checkbox) -->
+  
+                  <!-- Delivery Days -->
                   <div class="col-md-6">
                     <label class="form-label">Delivery Days</label>
-                    <div class="form-check">
-                      <input
-                        class="form-check-input"
-                        type="checkbox"
-                        name="delivery_days"
-                        value="monday"
-                        id="monday"
-                      />
-                      <label class="form-check-label" for="monday"
-                        >Monday</label
-                      >
-                    </div>
-                    <div class="form-check">
-                      <input
-                        class="form-check-input"
-                        type="checkbox"
-                        name="delivery_days"
-                        value="tuesday"
-                        id="tuesday"
-                      />
-                      <label class="form-check-label" for="tuesday"
-                        >Tuesday</label
-                      >
-                    </div>
-                    <div class="form-check">
-                      <input
-                        class="form-check-input"
-                        type="checkbox"
-                        name="delivery_days"
-                        value="wednesday"
-                        id="wednesday"
-                      />
-                      <label class="form-check-label" for="wednesday"
-                        >Wednesday</label
-                      >
-                    </div>
-                    <div class="form-check">
-                      <input
-                        class="form-check-input"
-                        type="checkbox"
-                        name="delivery_days"
-                        value="thursday"
-                        id="thursday"
-                      />
-                      <label class="form-check-label" for="thursday"
-                        >Thursday</label
-                      >
-                    </div>
-                    <div class="form-check">
-                      <input
-                        class="form-check-input"
-                        type="checkbox"
-                        name="delivery_days"
-                        value="friday"
-                        id="friday"
-                      />
-                      <label class="form-check-label" for="friday"
-                        >Friday</label
-                      >
-                    </div>
-                    <div class="form-check">
-                      <input
-                        class="form-check-input"
-                        type="checkbox"
-                        name="delivery_days"
-                        value="saturday"
-                        id="saturday"
-                      />
-                      <label class="form-check-label" for="saturday"
-                        >Saturday</label
-                      >
-                    </div>
-                    <div class="form-check">
-                      <input
-                        class="form-check-input"
-                        type="checkbox"
-                        name="delivery_days"
-                        value="sunday"
-                        id="sunday"
-                      />
-                      <label class="form-check-label" for="sunday"
-                        >Sunday</label
-                      >
-                    </div>
+                    <div class="form-check"><input class="form-check-input" type="checkbox" name="delivery_days" value="monday" id="monday" /><label class="form-check-label" for="monday">Monday</label></div>
+                    <div class="form-check"><input class="form-check-input" type="checkbox" name="delivery_days" value="tuesday" id="tuesday" /><label class="form-check-label" for="tuesday">Tuesday</label></div>
+                    <div class="form-check"><input class="form-check-input" type="checkbox" name="delivery_days" value="wednesday" id="wednesday" /><label class="form-check-label" for="wednesday">Wednesday</label></div>
+                    <div class="form-check"><input class="form-check-input" type="checkbox" name="delivery_days" value="thursday" id="thursday" /><label class="form-check-label" for="thursday">Thursday</label></div>
+                    <div class="form-check"><input class="form-check-input" type="checkbox" name="delivery_days" value="friday" id="friday" /><label class="form-check-label" for="friday">Friday</label></div>
+                    <div class="form-check"><input class="form-check-input" type="checkbox" name="delivery_days" value="saturday" id="saturday" /><label class="form-check-label" for="saturday">Saturday</label></div>
+                    <div class="form-check"><input class="form-check-input" type="checkbox" name="delivery_days" value="sunday" id="sunday" /><label class="form-check-label" for="sunday">Sunday</label></div>
                   </div>
-
+  
+                  <!-- Allergies -->
                   <div class="col-12">
                     <label for="allergies">Allergies</label>
-                    <textarea
-                      class="form-control"
-                      name="allergies"
-                      id="allergies"
-                      rows="2"
-                      placeholder="Enter any known allergies..."
-                    ></textarea>
+                    <textarea class="form-control" name="allergies" id="allergies" rows="2" placeholder="Enter any known allergies..."></textarea>
                   </div>
-                </div>
-
-                <div class="text-end mt-4">
-                  <button type="submit" class="btn btn-orange px-4">
-                    <i class="fa-solid fa-check me-2"></i>Subscribe Now
-                  </button>
+  
+                  <!-- Total Price Preview -->
+                  <div class="col-12">
+                    <div id="totalPricePreview" class="alert alert-info fw-semibold">
+                      Total harga akan muncul setelah semua pilihan diisi.
+                    </div>
+                  </div>
+  
+                  <!-- Submit -->
+                  <div class="col-12 text-end mt-2">
+                    <button type="submit" class="btn btn-orange px-4">
+                      <i class="fa-solid fa-check me-2"></i>Subscribe Now
+                    </button>
+                  </div>
                 </div>
               </form>
             </div>
@@ -215,7 +100,7 @@
         </div>
       </div>
     </section>
-
+  
     <%- include('../views/partials/footer.ejs') %>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="/js/Subscription.js"></script>

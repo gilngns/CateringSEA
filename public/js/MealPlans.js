@@ -124,7 +124,11 @@ function setupAddForm() {
         confirmButtonColor: '#3085d6'
       });
 
-      location.reload();
+      addForm.reset(); 
+
+      const modal = bootstrap.Modal.getInstance(document.getElementById('addMealModal'));
+      if (modal) modal.hide();
+      await loadMealPlans(); 
     } catch (err) {
       console.error('❌ Fetch error:', err);
       Swal.fire({
@@ -135,6 +139,14 @@ function setupAddForm() {
       });
     }
   });
+
+  // ✅ Kosongkan form saat modal ditutup manual
+  const modalElement = document.getElementById('addMealModal');
+  if (modalElement) {
+    modalElement.addEventListener('hidden.bs.modal', () => {
+      addForm.reset();
+    });
+  }
 }
 
 // === Form Edit Meal Plan ===

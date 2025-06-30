@@ -19,29 +19,27 @@ const subscriptionController = {
         plan_id,
         meal_type, 
         delivery_days,
-        allergies
+        allergies,
+        total_price
       } = req.body;
-
+  
       const mealTypes = Array.isArray(meal_type)
         ? meal_type
         : typeof meal_type === 'string'
         ? [meal_type]
         : [];
-
+  
       const days = Array.isArray(delivery_days)
         ? delivery_days
         : typeof delivery_days === 'string'
         ? [delivery_days]
         : [];
-
+  
       const plan = await MealPlan.findById(plan_id);
       if (!plan) {
         return res.status(400).json({ error: 'Invalid plan ID' });
       }
-
-      const planPrice = parseFloat(plan.price);
-      const totalPrice = planPrice * mealTypes.length * days.length * 4.3;
-
+  
       const subscription = await Subscription.create({
         user_id: req.user.id,
         phone_number,
@@ -49,13 +47,13 @@ const subscriptionController = {
         meal_type: mealTypes.join(','),
         delivery_days: days.join(','),
         allergies,
-        total_price: totalPrice,
+        total_price: parseFloat(total_price),
         status: 'ACTIVE',
         start_date: new Date(),
         created_at: new Date(),
         updated_at: new Date()
       });
-
+  
       res.status(201).json({
         message: 'Subscription created successfully',
         data: subscription
@@ -65,6 +63,7 @@ const subscriptionController = {
       res.status(500).json({ error: 'Something went wrong.' });
     }
   },
+  
 
   update: async (req, res) => {
     try {

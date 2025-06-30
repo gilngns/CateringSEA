@@ -37,18 +37,19 @@
               <table class="table table-hover align-middle text-center">
                 <thead class="bg-primary text-white">
                   <tr>
-                    <th>NAME</th>
-                    <th>PHONE</th>
-                    <th>MEAL TYPE</th>
-                    <th>DELIVERY DAYS</th>
-                    <th>ALLERGIES</th>
-                    <th>TOTAL PRICE</th>
-                    <th>STATUS</th>
-                    <th>START</th>
-                    <th>END</th>
-                    <!-- 👇 Hapus jika bukan ADMIN -->
+                    <th>User</th>
+                    <th>Phone</th>
+                    <th>Meal Type</th>
+                    <th>Delivery Days</th>
+                    <th>Allergies</th>
+                    <th>Total Price</th>
+                    <th>Status</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Pause Start</th>
+                    <th>Pause End</th>
                     <% if (role === 'ADMIN') { %>
-                      <th>ACTION</th>
+                      <th>Action</th>
                     <% } %>
                   </tr>
                 </thead>
