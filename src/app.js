@@ -104,12 +104,12 @@ app.use(
   // =========================
   app.use(express.static(path.join(ROOT_DIR, 'public')));
   app.use('/uploads', express.static('uploads'));
-
+  app.use(express.static('public'));
   // =========================
   // 🖼️ Set EJS View Engine
   // =========================
   app.set('view engine', 'ejs');
-  app.set('views', path.join(__dirname,'src', 'views'));
+  app.set('views', path.join(__dirname, 'views'));
 
   // =========================
   // 🌐 Frontend Routes
