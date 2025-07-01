@@ -64,6 +64,7 @@ app.use(
       styleSrc: [
         "'self'",
         "'unsafe-inline'",
+        "http://178.128.106.41",
         "https://fonts.googleapis.com",
         "https://cdn.jsdelivr.net",
         "https://cdnjs.cloudflare.com",
