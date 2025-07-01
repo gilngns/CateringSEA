@@ -34,7 +34,8 @@
     />
 
     <!-- Link CSS -->
-    <link rel="stylesheet" href="/css/style.css" />
+    <!-- <link rel="stylesheet" href="../public/css/style.css" /> -->
+    <link rel="stylesheet" href="../../public/css/style.css" />
   </head>
   <body>
     <!-- Hero Section -->
@@ -435,7 +436,6 @@
     <!-- Testimonial Section -->
     <section class="py-5 bg-light" id="testimonial">
       <div class="container">
-
         <!-- Section Header -->
         <div class="text-center mb-5" data-aos="fade-up" data-aos-delay="100">
           <div class="mb-3">
@@ -448,10 +448,13 @@
         <!-- Swiper -->
         <div class="swiper" data-aos="fade-up" data-aos-delay="200">
           <div class="swiper-wrapper">
-
             <!-- Testimonial Slide 1 -->
             <div class="swiper-slide">
-              <div class="card border-0 shadow-sm h-100 p-4 rounded-4 bg-white" data-aos="zoom-in" data-aos-delay="300">
+              <div
+                class="card border-0 shadow-sm h-100 p-4 rounded-4 bg-white"
+                data-aos="zoom-in"
+                data-aos-delay="300"
+              >
                 <div class="d-flex align-items-center mb-3">
                   <i class="bi bi-person-circle fs-1 text-warning me-3"></i>
                   <div>
@@ -465,13 +468,20 @@
                     </div>
                   </div>
                 </div>
-                <p class="card-text">“My favorite catering service. Delicious and consistent taste every time!”</p>
+                <p class="card-text">
+                  “My favorite catering service. Delicious and consistent taste
+                  every time!”
+                </p>
               </div>
             </div>
 
             <!-- Testimonial Slide 2 -->
             <div class="swiper-slide">
-              <div class="card border-0 shadow-sm h-100 p-4 rounded-4 bg-white" data-aos="zoom-in" data-aos-delay="400">
+              <div
+                class="card border-0 shadow-sm h-100 p-4 rounded-4 bg-white"
+                data-aos="zoom-in"
+                data-aos-delay="400"
+              >
                 <div class="d-flex align-items-center mb-3">
                   <i class="bi bi-person-circle fs-1 text-warning me-3"></i>
                   <div>
@@ -485,13 +495,20 @@
                     </div>
                   </div>
                 </div>
-                <p class="card-text">“Ordering is so easy and the meals are lifesavers on hectic weekdays!”</p>
+                <p class="card-text">
+                  “Ordering is so easy and the meals are lifesavers on hectic
+                  weekdays!”
+                </p>
               </div>
             </div>
 
             <!-- Testimonial Slide 3 -->
             <div class="swiper-slide">
-              <div class="card border-0 shadow-sm h-100 p-4 rounded-4 bg-white" data-aos="zoom-in" data-aos-delay="500">
+              <div
+                class="card border-0 shadow-sm h-100 p-4 rounded-4 bg-white"
+                data-aos="zoom-in"
+                data-aos-delay="500"
+              >
                 <div class="d-flex align-items-center mb-3">
                   <i class="bi bi-person-circle fs-1 text-warning me-3"></i>
                   <div>
@@ -505,13 +522,20 @@
                     </div>
                   </div>
                 </div>
-                <p class="card-text">“Feels like homemade food, but better! The spices and freshness are top-notch.”</p>
+                <p class="card-text">
+                  “Feels like homemade food, but better! The spices and
+                  freshness are top-notch.”
+                </p>
               </div>
             </div>
 
             <!-- Testimonial Slide 4 -->
             <div class="swiper-slide">
-              <div class="card border-0 shadow-sm h-100 p-4 rounded-4 bg-white" data-aos="zoom-in" data-aos-delay="600">
+              <div
+                class="card border-0 shadow-sm h-100 p-4 rounded-4 bg-white"
+                data-aos="zoom-in"
+                data-aos-delay="600"
+              >
                 <div class="d-flex align-items-center mb-3">
                   <i class="bi bi-person-circle fs-1 text-warning me-3"></i>
                   <div>
@@ -525,10 +549,12 @@
                     </div>
                   </div>
                 </div>
-                <p class="card-text">“I love the healthy options. So hard to find good plant-based meals, but this one delivers!”</p>
+                <p class="card-text">
+                  “I love the healthy options. So hard to find good plant-based
+                  meals, but this one delivers!”
+                </p>
               </div>
             </div>
-
           </div>
 
           <!-- Swiper Pagination -->
@@ -537,30 +563,45 @@
 
         <!-- Button: Trigger Testimonial Modal -->
         <div class="text-center mt-5">
-          <button class="btn btn-warning px-4 py-2 rounded-pill" data-bs-toggle="modal" data-bs-target="#testimonialModal">
+          <button
+            class="btn btn-warning px-4 py-2 rounded-pill"
+            data-bs-toggle="modal"
+            data-bs-target="#testimonialModal"
+          >
             ✍️ Submit Your Testimonial
           </button>
         </div>
-
       </div>
     </section>
 
     <!-- Testimonial Modal -->
-    <div class="modal fade" id="testimonialModal" tabindex="-1" aria-labelledby="testimonialModalLabel" aria-hidden="true">
+    <div
+      class="modal fade"
+      id="testimonialModal"
+      tabindex="-1"
+      aria-labelledby="testimonialModalLabel"
+      aria-hidden="true"
+    >
       <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content rounded-4">
           <div class="modal-header border-0">
-            <h5 class="modal-title fw-bold" id="testimonialModalLabel">Share Your Experience</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <h5 class="modal-title fw-bold" id="testimonialModalLabel">
+              Share Your Experience
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
           </div>
           <div class="modal-body">
             <form class="needs-validation" novalidate>
-
               <!-- Rating -->
               <div class="mb-3">
                 <label class="form-label fw-semibold d-block">Rating</label>
                 <div id="star-rating" class="text-warning fs-4">
-                  <input type="hidden" name="rating" id="rating" value="0">
+                  <input type="hidden" name="rating" id="rating" value="0" />
                   <i class="bi bi-star" data-value="1"></i>
                   <i class="bi bi-star" data-value="2"></i>
                   <i class="bi bi-star" data-value="3"></i>
@@ -572,14 +613,25 @@
 
               <!-- Review -->
               <div class="mb-3">
-                <label for="review" class="form-label fw-semibold">Your Testimonial</label>
-                <textarea name="review" id="review" rows="4" class="form-control" placeholder="Write your thoughts here..." required></textarea>
+                <label for="review" class="form-label fw-semibold"
+                  >Your Testimonial</label
+                >
+                <textarea
+                  name="review"
+                  id="review"
+                  rows="4"
+                  class="form-control"
+                  placeholder="Write your thoughts here..."
+                  required
+                ></textarea>
                 <div class="invalid-feedback">Testimonial cannot be empty.</div>
               </div>
 
               <!-- Submit -->
               <div class="text-end">
-                <button type="submit" class="btn btn-warning rounded-pill px-4">Submit</button>
+                <button type="submit" class="btn btn-warning rounded-pill px-4">
+                  Submit
+                </button>
               </div>
             </form>
           </div>
@@ -597,7 +649,6 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
 
     <!-- Init AOS -->
     <script>
