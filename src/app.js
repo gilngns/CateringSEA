@@ -65,6 +65,7 @@ app.use(
         "'self'",
         "'unsafe-inline'",
         "http://178.128.106.41",
+        "http://localhost:3000",
         "https://fonts.googleapis.com",
         "https://cdn.jsdelivr.net",
         "https://cdnjs.cloudflare.com",
