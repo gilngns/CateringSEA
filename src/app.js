@@ -47,58 +47,58 @@
   app.use(cookieParser());
 
  // 📃 Content Security Policy (CSP)
-// app.use(
-//   helmet.contentSecurityPolicy({
-//     directives: {
-//       defaultSrc: ["'self'"],
-//       scriptSrc: [
-//         "'self'",
-//         "'unsafe-inline'",
-//         "https://cdnjs.cloudflare.com",
-//         "https://cdn.jsdelivr.net",
-//         "https://code.jquery.com",
-//         "https://www.googletagmanager.com",
-//         "https://unpkg.com",
-//         "https://cdn.datatables.net" 
-//       ],
-//       styleSrc: [
-//         "'self'",
-//         "'unsafe-inline'",
-//         "http://178.128.106.41",
-//         "http://localhost:3000",
-//         "https://fonts.googleapis.com",
-//         "https://cdn.jsdelivr.net",
-//         "https://cdnjs.cloudflare.com",
-//         "https://cdn.lineicons.com",
-//         "https://cdn.datatables.net" 
-//       ],
-//       fontSrc: [
-//         "'self'",
-//         "https://fonts.gstatic.com",
-//         "https://cdn.jsdelivr.net",
-//         "https://cdnjs.cloudflare.com",
-//         "https://cdn.lineicons.com",
-//         "data:"
-//       ],
-//       imgSrc: [
-//         "'self'",
-//         "data:",
-//         "https://cdn.jsdelivr.net",
-//         "https://cdnjs.cloudflare.com",
-//         "https://www.googletagmanager.com"
-//       ],
-//       connectSrc: [
-//         "'self'",
-//         "http://localhost:3000",
-//         "https://www.google-analytics.com",
-//         "https://lottie.host",
-//         "https://cdn.datatables.net"
-//       ],
-//       objectSrc: ["'none'"],
-//       upgradeInsecureRequests: []
-//     }
-//   })
-// );
+app.use(
+  helmet.contentSecurityPolicy({
+    directives: {
+      defaultSrc: ["'self'"],
+      scriptSrc: [
+        "'self'",
+        "'unsafe-inline'",
+        "https://cdnjs.cloudflare.com",
+        "https://cdn.jsdelivr.net",
+        "https://code.jquery.com",
+        "https://www.googletagmanager.com",
+        "https://unpkg.com",
+        "https://cdn.datatables.net" 
+      ],
+      styleSrc: [
+        "'self'",
+        "'unsafe-inline'",
+        "http://178.128.106.41",
+        "http://localhost:3000",
+        "https://fonts.googleapis.com",
+        "https://cdn.jsdelivr.net",
+        "https://cdnjs.cloudflare.com",
+        "https://cdn.lineicons.com",
+        "https://cdn.datatables.net" 
+      ],
+      fontSrc: [
+        "'self'",
+        "https://fonts.gstatic.com",
+        "https://cdn.jsdelivr.net",
+        "https://cdnjs.cloudflare.com",
+        "https://cdn.lineicons.com",
+        "data:"
+      ],
+      imgSrc: [
+        "'self'",
+        "data:",
+        "https://cdn.jsdelivr.net",
+        "https://cdnjs.cloudflare.com",
+        "https://www.googletagmanager.com"
+      ],
+      connectSrc: [
+        "'self'",
+        "http://localhost:3000",
+        "https://www.google-analytics.com",
+        "https://lottie.host",
+        "https://cdn.datatables.net"
+      ],
+      objectSrc: ["'none'"],
+      upgradeInsecureRequests: []
+    }
+  })
+);
 
 
   // =========================
