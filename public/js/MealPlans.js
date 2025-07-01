@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // === Load Data dari API dan Render Tabel + Pagination ===
 async function loadMealPlans() {
   try {
-    const res = await fetch('http://localhost:3000/api/meal-plans');
+    const res = await fetch('https://cateringsea.my.id//api/meal-plans');
     allMealPlans = await res.json();
 
     const totalPages = Math.ceil(allMealPlans.length / itemsPerPage);
@@ -101,7 +101,7 @@ function setupAddForm() {
     const formData = new FormData(addForm);
 
     try {
-      const res = await fetch('http://localhost:3000/api/meal-plans', {
+      const res = await fetch('https://cateringsea.my.id//api/meal-plans', {
         method: 'POST',
         body: formData
       });
@@ -160,7 +160,7 @@ function setupEditForm() {
     const formData = new FormData(editForm);
 
     try {
-      const res = await fetch(`http://localhost:3000/api/meal-plans/${id}`, {
+      const res = await fetch(`https://cateringsea.my.id//api/meal-plans/${id}`, {
         method: 'PUT',
         body: formData
       });
@@ -243,7 +243,7 @@ function bindDeleteButtons() {
       if (!confirm.isConfirmed) return;
 
       try {
-        const res = await fetch(`http://localhost:3000/api/meal-plans/${id}`, {
+        const res = await fetch(`https://cateringsea.my.id//api/meal-plans/${id}`, {
           method: 'DELETE'
         });
 

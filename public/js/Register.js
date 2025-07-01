@@ -16,7 +16,7 @@ document.getElementById('registerForm').addEventListener('submit', async (e) => 
   }
 
   try {
-    const response = await fetch('http://localhost:3000/api/users', {
+    const response = await fetch('https://cateringsea.my.id//api/users', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ full_name, email, password })

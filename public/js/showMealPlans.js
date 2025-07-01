@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', async () => {
   try {
-    const res = await fetch('http://localhost:3000/api/meal-plans');
+    const res = await fetch('https://cateringsea.my.id//api/meal-plans');
     const json = await res.json();
 
     const mealPlans = Array.isArray(json) ? json : (json.data || []);

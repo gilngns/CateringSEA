@@ -16,7 +16,7 @@ let availablePlans = [];
 document.addEventListener('DOMContentLoaded', async () => {
   try {
     // === Total Meal Plans ===
-    const res = await fetch('http://localhost:3000/api/meal-plans');
+    const res = await fetch('https://cateringsea.my.id//api/meal-plans');
     const data = await res.json();
     const totalPlansEl = document.getElementById('total-plans');
     if (totalPlansEl) {
@@ -40,7 +40,7 @@ async function loadMealPlansForm() {
   if (!planSelect) return;
 
   try {
-    const res = await fetch('http://localhost:3000/api/meal-plans');
+    const res = await fetch('https://cateringsea.my.id//api/meal-plans');
     const plans = await res.json();
 
     availablePlans = plans;
@@ -118,7 +118,7 @@ async function loadMealPlansForm() {
     };
 
     try {
-      const res = await fetch('http://localhost:3000/api/subscriptions', {
+      const res = await fetch('https://cateringsea.my.id//api/subscriptions', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
@@ -161,7 +161,7 @@ async function loadMealPlansForm() {
 // ============================
 async function loadSubscriptions() {
   try {
-    const res = await fetch('http://localhost:3000/api/subscriptions', {
+    const res = await fetch('https://cateringsea.my.id//api/subscriptions', {
       credentials: 'include',
     });
 
@@ -318,7 +318,7 @@ async function updateStatus(id, newStatus) {
       bodyData.end_date = today;
     }
 
-    const res = await fetch(`http://localhost:3000/api/subscriptions/${id}`, {
+    const res = await fetch(`https://cateringsea.my.id//api/subscriptions/${id}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(bodyData)
@@ -356,7 +356,7 @@ function bindResumeButton() {
     btn.addEventListener('click', async function () {
       const id = this.getAttribute('data-id');
       try {
-        const res = await fetch(`http://localhost:3000/api/subscriptions/${id}`, {
+        const res = await fetch(`https://cateringsea.my.id//api/subscriptions/${id}`, {
           method: 'PUT',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ status: 'ACTIVE' })
@@ -382,7 +382,7 @@ function bindEndButton() {
       const id = this.getAttribute('data-id');
       const today = new Date().toISOString().split('T')[0];
       try {
-        const res = await fetch(`http://localhost:3000/api/subscriptions/${id}`, {
+        const res = await fetch(`https://cateringsea.my.id//api/subscriptions/${id}`, {
           method: 'PUT',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ end_date: today, status: 'END' }) 
@@ -408,7 +408,7 @@ function bindDeleteButton() {
       const id = e.target.dataset.id || e.target.closest('button').dataset.id;
       if (confirm('Yakin mau hapus order ini?')) {
         try {
-          const res = await fetch(`http://localhost:3000/api/subscriptions/${id}`, {
+          const res = await fetch(`https://cateringsea.my.id//api/subscriptions/${id}`, {
             method: 'DELETE'
           });
           const result = await res.json();

@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Ambil & tampilkan data testimonial
   async function loadTestimonials() {
     try {
-      const res = await fetch('http://localhost:3000/api/testimonials');
+      const res = await fetch('https://cateringsea.my.id//api/testimonials');
       const data = await res.json();
   
       testimonialWrapper.innerHTML = '';
@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       try {
-        const res = await fetch('http://localhost:3000/api/testimonials', {
+        const res = await fetch('https://cateringsea.my.id//api/testimonials', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           credentials: 'include',

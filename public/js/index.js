@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', async () => {
   try {
-    const res = await fetch('http://localhost:3000/api/meal-plans');
+    const res = await fetch('https://cateringsea.my.id/api/meal-plans');
     const mealPlans = await res.json();
 
     const container = document.getElementById('meal-cards');

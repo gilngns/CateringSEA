@@ -10,7 +10,7 @@ document.getElementById('loginForm').addEventListener('submit', async (e) => {
   loginError.innerHTML = '';
 
   try {
-    const res = await fetch('http://localhost:3000/api/users/login', {
+    const res = await fetch('https://cateringsea.my.id//api/users/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
