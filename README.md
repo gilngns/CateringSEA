@@ -103,7 +103,7 @@ Reach out via:
 - 📧 Email: **nsgilang10@gmail.com**
 - 📱 Instagram: [@gilangns_](https://instagram.com/gilangns_)
 - 🌐 Website: [https://cateringsea.my.id](https://cateringsea.my.id)
-[![GitHub](https://img.shields.io/badge/GitHub-gilangns-181717?style=flat&logo=github)](https://github.com/gilangns)
+[![GitHub](https://img.shields.io/badge/GitHub-gilangns-181717?style=flat&logo=github)](https://github.com/gilngns)
 
 
 
