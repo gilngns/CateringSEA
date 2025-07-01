@@ -39,9 +39,14 @@
   // =========================
   app.use(helmet());
   app.use(cors({ 
-    origin: ['http://localhost:3000', 'http://178.128.106.41'],
+    origin: [
+      'http://localhost:3000',
+      'http://178.128.106.41',
+      'http://cateringsea.my.id'
+    ],
     credentials: true
-  }));  
+  }));
+    
   app.use(express.urlencoded({ extended: true }));
   app.use(express.json());
   app.use(cookieParser());
@@ -66,6 +71,7 @@ app.use(
         "'unsafe-inline'",
         "http://178.128.106.41",
         "http://localhost:3000",
+        "https://cateringsea.my.id",
         "https://fonts.googleapis.com",
         "https://cdn.jsdelivr.net",
         "https://cdnjs.cloudflare.com",
@@ -101,7 +107,7 @@ app.use(
 );
 
 
-  // =========================
+  // =========================  
   // 📁 Static Files
   // =========================
   app.use(express.static(path.join(ROOT_DIR, 'public')));
