@@ -110,7 +110,7 @@ app.use(
   // =========================  
   // 📁 Static Files
   // =========================
-  app.use(express.static(path.join(ROOT_DIR, 'public')));
+  app.use(express.static(path.join(__dirname, '..', 'public')));
   app.use('/uploads', express.static('uploads'));
   // =========================
   // 🖼️ Set EJS View Engine
