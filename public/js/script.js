@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
     e.preventDefault();
   
     try {
-      const res = await fetch('https://cateringsea.my.id//api/users/logout', {
+      const res = await fetch('https://cateringsea.my.id/api/users/logout', {
         method: 'POST',
         credentials: 'include'
       });
@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const authBtn = document.getElementById('authBtn');
   
     try {
-      const res = await fetch('https://cateringsea.my.id//api/users/check-auth', {
+      const res = await fetch('https://cateringsea.my.id/api/users/check-auth', {
         credentials: 'include'
       });
   
@@ -94,7 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
         authBtn.href = '#';
         authBtn.addEventListener('click', async (e) => {
           e.preventDefault();
-          await fetch('https://cateringsea.my.id//api/users/logout', {
+          await fetch('https://cateringsea.my.id/api/users/logout', {
             method: 'POST',
             credentials: 'include'
           });

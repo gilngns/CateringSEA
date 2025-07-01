@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', async () => {
   try {
     // === Total Meal Plans ===
-    const res = await fetch('https://cateringsea.my.id//api/meal-plans');
+    const res = await fetch('https://cateringsea.my.id/api/meal-plans');
     const data = await res.json();
     setText('total-plans', data.length);
     animateCounter('total-plans');
@@ -143,7 +143,7 @@ function formatRevenueSuffix() {
 // ========== Load Revenue ==========
 async function loadRevenueFromFrontend(range = 'daily') {
   try {
-    const res = await fetch('https://cateringsea.my.id//api/subscriptions');
+    const res = await fetch('https://cateringsea.my.id/api/subscriptions');
     const subscriptions = await res.json();
 
     const now = new Date();
@@ -273,7 +273,7 @@ function renderRevenueChart(data = []) {
 // ========== Order Summary ==========
 async function loadOrderStatusSummary(range = 'daily') {
   try {
-    const res = await fetch('https://cateringsea.my.id//api/subscriptions');
+    const res = await fetch('https://cateringsea.my.id/api/subscriptions');
     const subscriptions = await res.json();
 
     const today = new Date();
